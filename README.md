@@ -12,11 +12,15 @@ This project builds a pipeline to convert electric appliance PDFs (TVs, fridges,
 5. **Evaluation**: Evaluate the model with ROUGE, BLEU, latency, throughput.
 6. **Deployment**: Streamlit-based chatbot hosted locally and via HuggingFace Spaces
    
-### Evaluation Results
+             |
+## Evaluation Results
 
-| Model                         | ROUGE-L Score | BLEU Score | Avg. Latency (ms) | Throughput (samples/sec) |
-|------------------------------|---------------|------------|-------------------|---------------------------|
-| Baseline (LLaMA 3.1 8B)      | 0.62          | 0.58       | 420               | 2.4                       |
-| Fine-Tuned (llama3-electric) | **0.74**      | **0.67**   | **360**           | **3.1**                   |
+| **Metric**       | **Baseline Model** | **Fine-tuned Model (`llama3-electric`)** |
+|------------------|--------------------|------------------------------------------|
+| **ROUGE-1**      | 0.114              | **0.148**                                |
+| **ROUGE-2**      | 0.031              | **0.050**                                |
+| **BLEU**         | 1.05               | **1.22**                                 |
+| **Latency (s)**  | 0.027              | **0.024**                                |
+| **Throughput**   | 37.26 qps          | **41.71 qps**                            |
 
 >  The fine-tuned model `Asmaamaghraby/llama3-electric` shows noticeable improvement across all evaluation metrics compared to the base model.
