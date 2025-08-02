@@ -1,0 +1,44 @@
+
+project:
+  name: Electric Device  Assistant
+
+data:
+  source_dir: data/raw_pdfs/
+  qa_output_path: data/qa__dataset.csv
+
+
+pdf_extraction:
+  ocr_enabled: true
+  language: eng
+  output_format: csv
+
+qa_generation:
+  prompt_template: "Given the device specs, create Q&A pairs..."
+  llm_model: meta-llama/Llama-3.1-8B-Instruct
+  max_questions_per_doc: 10
+
+finetuning:
+  model_name: meta-llama/Llama-3.1-8B-Instruct
+  use_lora: true
+  use_qlora: false
+  train_batch_size: 2
+  eval_batch_size: 2
+  epochs: 10
+  learning_rate: 2e-4
+  output_dir: outputs/Asmaamaghraby/llama3-electric
+
+evaluation:
+  metrics: [ROUGE, BLEU]
+  test_size: 0.2
+  latency_measurements: 50
+
+deployment:
+  interface: streamlit
+  huggingface_spaces: true
+  local_port: 7860
+
+logging:
+  log_dir: logs/
+  log_level: INFO
+
+seed: 42
