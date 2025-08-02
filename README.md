@@ -11,3 +11,5 @@ This project builds a pipeline to convert electric appliance PDFs (TVs, fridges,
 4. **Model Fine-Tuning**: Fine-tune `LLaMA3-8B` on QA pairs with LoRA.
 5. **Evaluation**: Evaluate the model with ROUGE, BLEU, latency, throughput.
 6. **Deployment**: Streamlit-based chatbot hosted locally and via HuggingFace Spaces
+
+   
